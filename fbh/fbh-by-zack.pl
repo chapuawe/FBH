@@ -6,7 +6,7 @@ use Net::SSLeay::Handle;
 
 if(!defined($ARGV[0] && $ARGV[1])) {
 
-print "                               Version 2.32 \n";
+print "                               Version 1.00 (stable) \n";
 print "\033[1;32 \n";
 
 print "	  88   88   .d8b.   NNNNNN  88       	88      88    88 \n";
