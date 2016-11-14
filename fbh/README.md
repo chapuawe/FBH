@@ -7,3 +7,9 @@ aqui te dejo un ejemplo :
   python fbh-by-zack.pl ejemplo@gmail.com rockyou.txt
   
 si todavia no te queda claro como utilizarlo puedes leer "guia.pdf"
+
+PD: si no tienes ningun diccionario , aqui te dejo un lugar
+donde puedes descargarte algunos :), recuerda la efectividad
+depende del diccionario:
+
+https://wiki.skullsecurity.org/index.php?title=Passwords
