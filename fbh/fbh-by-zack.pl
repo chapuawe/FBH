@@ -47,8 +47,7 @@ print "\n\n";
 
 use strict;
 use warnings;
-use lib('libs/ProxySelector');
-#use HTTP::ProxySelector;
+use HTTP::ProxySelector;
 use LWP::UserAgent;
 
 my $selector = HTTP::ProxySelector->new(sites
