@@ -6,7 +6,7 @@ use Net::SSLeay::Handle;
 
 if(!defined($ARGV[0] && $ARGV[1])) {
 
-print "                               Version 2.32 \n";
+print "                               Version 1.5 (stable) \n";
 print "\033[1;32 \n";
 
 print "	  88   88   .d8b.   NNNNNN  88       	88      88    88 \n";
@@ -30,7 +30,7 @@ my $proxy = $ARGV[2];
 open (LIST, $wordlist) || die "\n[-] Can't find/open $wordlist\n";
 
 
-print "                               Version 2.50 \n";
+print "                               Version 1.5 (stable) \n";
 print "\033[1;32 \n";
 print "	      88   88   .d8b.   NNNNNN  88       	88      88    88 \n";
 print "	      88, ,88  d8' '8b    88    88       	88      88,  ,88 \n";
