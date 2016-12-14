@@ -138,6 +138,10 @@ if (!defined $success)
 print "\033[1;31m[-] $password -> Failed \n";
 close SSL;
 $contrasenas = $contrasenas+1;
+if ($contrasenas = $limite);
+{
+sleep(20);
+}
 }
 else
 {
